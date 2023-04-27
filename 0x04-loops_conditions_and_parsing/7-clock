@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Shell Script to print the clock from 0 to 12
+
+count=0
+
+while [ $count -le 12 ]
+do
+	echo "Hour: $count"
+	minhd=1
+	while [ $minhd -le 59 ]
+	do
+		echo "$minhd"
+		(( minhd++ ))
+	done
+	(( count++ ))
+done
