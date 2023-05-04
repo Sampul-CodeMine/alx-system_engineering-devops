@@ -115,8 +115,8 @@ Ports are standardized across all network-connected devices, with each port assi
 |SSH (Secure SHell)|22|
 |Telnet|23|
 |SMTP (Simple Mail Transfer Protocol)|25|
-|DNS (Domain Name System|53|
-|DHCP Dynamic Host Configuration Protocol|67/68|
+|DNS (Domain Name System)|53|
+|DHCP (Dynamic Host Configuration Protocol)|67/68|
 |POP (Post Office Protocol)|110|
 |IMAP (Internet Message Access Protocol)|143|
 |HTTP (HyperText Transfer Protocol)|80|
