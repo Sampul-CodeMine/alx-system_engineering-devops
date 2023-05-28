@@ -24,3 +24,15 @@
 - Keep in mind that you will have 30 minutes to perform the exercise, you will get - points for what is asked in requirements
 - Similarly in a job interview, you should answer what the interviewer asked for, be careful about being too verbose - always ask the interviewer if going into details is necessary - speaking too much can play against you
 - In this project, again, avoid going in details if not asked
+
+### Task 0
+[0. Simple web stack](https://github.com/Sampul-CodeMine/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/0.%20Simple%20web%20stack.PNG)
+
+### Task 1
+[1. Distributed web infrastructure](https://github.com/Sampul-CodeMine/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/1.%20Distributed%20web%20infrastructure.PNG)
+
+### Task 2
+[2. Secured and monitored web infrastructure](https://github.com/Sampul-CodeMine/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/2.%20Secured%20and%20monitored%20web%20infrastructure.PNG)
+
+### Task 3
+[3. Scale up](https://github.com/Sampul-CodeMine/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/3.%20Scale%20up.PNG)
