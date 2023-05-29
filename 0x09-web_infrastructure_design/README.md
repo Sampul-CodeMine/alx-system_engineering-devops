@@ -26,13 +26,21 @@
 - In this project, again, avoid going in details if not asked
 
 ### Task 0
+
 [0. Simple web stack](https://github.com/Sampul-CodeMine/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/0.%20Simple%20web%20stack.PNG)
+<div><img src="https://github.com/Sampul-CodeMine/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/0.%20Simple%20web%20stack.PNG" alt="Simple web stack"></div>
 
 ### Task 1
+
 [1. Distributed web infrastructure](https://github.com/Sampul-CodeMine/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/1.%20Distributed%20web%20infrastructure.PNG)
+<div><img src="https://github.com/Sampul-CodeMine/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/1.%20Distributed%20web%20infrastructure.PNG" alt="Distributed web infrastructure"></div>
 
 ### Task 2
+
 [2. Secured and monitored web infrastructure](https://github.com/Sampul-CodeMine/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/2.%20Secured%20and%20monitored%20web%20infrastructure.PNG)
+<div><img src="https://github.com/Sampul-CodeMine/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/2.%20Secured%20and%20monitored%20web%20infrastructure.PNG" alt="Secured and monitored web infrastructure"</div>
 
 ### Task 3
+
 [3. Scale up](https://github.com/Sampul-CodeMine/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/3.%20Scale%20up.PNG)
+<div><img src="https://github.com/Sampul-CodeMine/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/3.%20Scale%20up.PNG" alt="Scale up"</div>
