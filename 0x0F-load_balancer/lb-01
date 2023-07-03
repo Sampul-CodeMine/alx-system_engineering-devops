@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#Connecting to the load-balancer server lb-01
+eval "$(ssh-agent)"
+ssh-add ~/.ssh/school
+ssh ubuntu@54.160.122.99
