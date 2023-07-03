@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Script to configure a new Ubuntu machine with respect to above the requirements
+
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get install -y nginx
+sudo mkdir /etc/nginx/html
+sudo touch /etc/nginx/html/index.html
+echo "Hello Word!" > /etc/nginx/html/index.html
+printf %s "server {
+    listen 80;
+    listen [::]:80 default_server;
+    root   /etc/nginx/html;
+    index  index.html index.htm;
+    location /redirect_me {
+        return 301 https://www.youtube.com/@sampulcodemine/playlists;
+    }
+}" > /etc/nginx/sites-available/default
+sudo service nginx restart
