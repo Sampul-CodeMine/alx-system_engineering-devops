@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Bash script to configure Nginx so that its 
+#HTTP response contains a custom header: web-01 and web-02
+
+headers=$(hostname)
+customStr1="error_page 404 \/custom_404.html;\n location \/redirect_me {\n return 301 \$scheme:\/\/www.youtube.com;"
+customStr2="server {\n\tadd_header X-Served-By $headers;"
+
+sudo apt update
+sudo apt install nginx -y
+echo "Hello World!" > /usr/share/nginx/html/index.html
+mkdir -p /var/www/html
+echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
+sudo sed -i -E "s/^[^#]+location \/ \{/$customStr1/" /etc/nginx/sites-available/default
+sudo sed -i -E "s/^server \{/$customStr2/" /etc/nginx/sites-available/default
+sudo service nginx start
