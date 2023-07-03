@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#Connecting to the server to let me in
+eval "$(ssh-agent)"
+ssh-add ~/.ssh/school
+ssh ubuntu@3.84.237.114
