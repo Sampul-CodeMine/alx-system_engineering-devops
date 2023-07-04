@@ -10,19 +10,16 @@ sudo apt-get install haproxy=2.7.\*
 
 #editing the configuration file
  server_config=\
-  9 "
- 10 frontend webapp-frontend
- 11         bind *:80
- 12         mode http
- 13         default_backend webapp-backend
- 14 backend webapp-backend
- 15         balance roundrobin
- 16         server 217820-web-01 3.84.237.114:80 check
- 17         server 217820-web-02 100.25.131.115:80 check
- 18 "
- 19
- 20 echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
- 21
- 22 echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
- 23
- 24 sudo service haproxy restart
+"
+frontend webapp-frontend
+        bind *:80
+        mode http
+        default_backend webapp-backend
+backend webapp-backend
+        balance roundrobin
+        server 217820-web-01 3.84.237.114:80 check
+        server 217820-web-02 100.25.131.115:80 check
+"
+echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+sudo service haproxy restart
