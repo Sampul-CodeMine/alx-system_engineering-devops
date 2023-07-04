@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 # Bash script to configure Nginx so that its 
 #HTTP response contains a custom header: web-01 and web-02
-
 sudo apt update
 sudo apt upgrade -y
 sudo apt install nginx -y
+
+sudo ufw allow 'Nginx HTTP'
+sudo ufw allow 22
 
 echo "Welcome to SampulCodeMine! A mine for simple implementable codes." > /var/www/html/index.html
 
@@ -27,5 +29,4 @@ printf %s "server {
     }
 }
 " > /etc/nginx/sites-available/default
-
 sudo service nginx restart
