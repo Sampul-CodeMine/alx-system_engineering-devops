@@ -2,15 +2,30 @@
 # Bash script to configure Nginx so that its 
 #HTTP response contains a custom header: web-01 and web-02
 
-headers=$(hostname)
-customStr1="error_page 404 \/custom_404.html;\n location \/redirect_me {\n return 301 \$scheme:\/\/www.youtube.com;"
-customStr2="server {\n\tadd_header X-Served-By $headers;"
-
 sudo apt update
+sudo apt upgrade -y
 sudo apt install nginx -y
-echo "Hello World!" > /usr/share/nginx/html/index.html
-mkdir -p /var/www/html
+
+echo "Welcome to SampulCodeMine! A mine for simple implementable codes." > /var/www/html/index.html
+
+touch /var/www/html/custom_404.html
 echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
-sudo sed -i -E "s/^[^#]+location \/ \{/$customStr1/" /etc/nginx/sites-available/default
-sudo sed -i -E "s/^server \{/$customStr2/" /etc/nginx/sites-available/default
-sudo service nginx start
+
+printf %s "server {
+     listen      80 default_server;
+     listen      [::]:80 default_server;
+     root        /var/www/html;
+     index       index.html index.htm;
+     add_header X-Served-By $HOSTNAME;
+     location /redirect_me {
+        return 301 https://twitter.com/Monemax655;
+    }
+    error_page 404 /custom_404.html;
+    location /custom_404 {
+      root /var/www/html;
+      internal;
+    }
+}
+" > /etc/nginx/sites-available/default
+
+sudo service nginx restart
