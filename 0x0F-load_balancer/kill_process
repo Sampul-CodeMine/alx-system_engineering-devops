@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+sudo fuser 80/tcp
+sudo lsof -i tcp:80 -s tcp:listen
+echo kill $(sudo netstat -anp | awk '/ LISTEN / {if($4 ~ ":80$") { gsub("/.*","",$7); print $7; exit } }')
