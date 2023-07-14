@@ -16,7 +16,7 @@ A README.md file, at the root of the folder of the project, is mandatory
 
 ---
 
-<img src="">
+<img src="https://github.com/Sampul-CodeMine/alx-system_engineering-devops/blob/master/0x11-what_happens_when_your_type_google_com_in_your_browser_and_press_enter/imgs/when_you_type_google.com_full.png">
 
 
 Growing up, there was this fancy thing always hanging there on my mind when I watched older folks who were computer literates then, or have been exposed to the world of Computers and computing, using a digital computer or smart devices to surf the internet and one of them was entering a URL (Uniform Resource Locator) or a URI (Uniform Resource Identifier) on the address bar of a browser and when the Enter/Return key was pressed: BOOM! Somany information and resource materials are being displayed as an output. I was curious and wanted to know what was going on behind the scene in that little brain box (CPU) or rather what was going on as well as the technology (software, hardware, networks and infrastructures) behind it.
