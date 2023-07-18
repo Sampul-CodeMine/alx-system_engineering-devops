@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Bash script to run `whoami` with a given parameter
 
-su  "$1" -s /bin/bash -c "whoami"
+sudo  -u "$1" whoami
