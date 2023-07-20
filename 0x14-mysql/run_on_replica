@@ -1,0 +1,2 @@
+--- Run this on the Relica DB on web-02 using root account
+CHANGE MASTER TO MASTER_HOST='web-01-ip', MASTER_USER='replica_user', MASTER_PASSWORD='', MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS=154;
