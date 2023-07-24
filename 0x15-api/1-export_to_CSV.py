@@ -10,16 +10,16 @@ if __name__ == "__main__":
     import requests as rq
     import sys
 
-    uid = sys.argv[1]
-    user = rq.get("https://jsonplaceholder.typicode.com/users/{}".format(uid))
+    uid = int(sys.argv[1])
+    url = "https://jsonplaceholder.typicode.com/users"
+    user = rq.get("{}/{}".format(url, str(uid)))
     name = user.json().get('username')
-    todos = rq.get('https://jsonplaceholder.typicode.com/todos')
+    todos = rq.get('{}/{}/todos'.format(url, str(uid)))
+    tasks = todos.json()
+    fn = '{}.csv'.format(str(uid))
 
-    fn = uid + '.csv'
     with open(fn, mode='w') as f:
-        writer = csv.writer(f, delimiter=',', quotechar='"',
-                            quoting=csv.QUOTE_ALL, lineterminator='\n')
-        for task in todos.json():
-            if task.get('userId') == int(uid):
-                writer.writerow([uid, name, str(task.get('completed')),
-                                task.get('title')])
+        for task in tasks:
+            f.write('"{}","{}","{}","{}"\n'
+                    .format(uid, name, task.get('completed'),
+                            task.get('title')))
