@@ -10,24 +10,25 @@ if __name__ == "__main__":
     import sys
 
     uid = int(sys.argv[1])
-    if type(uid) == int:
-        url = "https://jsonplaceholder.typicode.com/"
-        user = rq.get("{}users/{}".format(url, uid))
+    baseUrl = "https://jsonplaceholder.typicode.com/users"
+    url = baseUrl + "/" + str(uid)
 
-        name = user.json().get('name')
+    response = rq.get(url)
+    name = response.json().get('name')
 
-        todos = rq.get('{}users/{}/todos'.format(url, uid))
-        tasks = todos.json()
-        totalTD = []
-        completed = 0
+    todoUrl = url + "/todos"
+    response = rq.get(todoUrl)
+    tasks = response.json()
+    done = 0
+    done_tasks = []
 
-        for task in tasks:
-            if task.get('completed'):
-               totalTD.append(task)
-               completed += 1
+    for task in tasks:
+        if task.get('completed'):
+            done_tasks.append(task)
+            done += 1
 
-        print('Employee {} is done with tasks({}/{}):'
-              .format(name, completed, len(tasks)))
+    print("Employee {} is done with tasks({}/{}):"
+          .format(name, done, len(tasks)))
 
-        for task in totalTD:
-            print("\t {}".format(task.get('title')))
+    for task in done_tasks:
+        print("\t {}".format(task.get('title')))
