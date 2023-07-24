@@ -10,8 +10,8 @@ if __name__ == "__main__":
     import sys
 
     uid = int(sys.argv[1])
-    baseUrl = "https://jsonplaceholder.typicode.com/users"
-    url = baseUrl + "/" + str(uid)
+    baseUrl = "https://jsonplaceholder.typicode.com/"
+    url = baseUrl + "users/" + str(uid)
 
     response = rq.get(url)
     name = response.json().get('name')
@@ -23,7 +23,7 @@ if __name__ == "__main__":
     done_tasks = []
 
     for task in tasks:
-        if task.get('completed'):
+        if task.get('completed') is True:
             done_tasks.append(task)
             done += 1
 
