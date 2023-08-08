@@ -6,7 +6,7 @@ from the Reddit API
 from requests import get
 
 
-def recurse(subreddit, hot_list=[], count=0, after=""):
+def recurse(subreddit, hot_list=[], after=None):
     """
     This is a function that recursively returns the 10 top post from a
     subreddit using the REDDIT API
@@ -15,16 +15,16 @@ def recurse(subreddit, hot_list=[], count=0, after=""):
         return None
     user_agent = {'User-Agent': 'Google Chrome Version 115.0.0.0'}
     url = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
-    params = {'after': after, 'count': count}
+    params = {'after': after}
     resp = get(url, headers=user_agent, allow_redirects=False, params=params)
-    result = resp.json()
 
-    if resp.status_code == 404:
-        return None
-    after = result.get('data').get('after')
-    count = result.get('data').get('dist')
-    for item in result.get('data').get('children'):
-        hot_list.append(item.get('data').get('title'))
-    if after is not None:
-        return recurse(subreddit, hot_list, count, after)
-    return hot_list
+    if resp.status_code == 200:
+        data = resp.json().get('data').get('after')
+        if data is not None:
+            after = data
+            recurse(subreddit, hot_list, after)
+        titles = resp.json().get('data').get('children')
+        for title in titles:
+            hot_list.append(title.get('data').get('title'))
+        return hot_list
+    return None
