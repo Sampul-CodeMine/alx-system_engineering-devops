@@ -17,12 +17,8 @@ def top_ten(subreddit):
     limits = {'limit': 10}
     url = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
     resp = get(url, headers=user_agent, allow_redirects=False, params=limits)
-    result = resp.json()
     if resp.status_code == 404:
         print("None")
-    try:
-        data = result.get('data').get('children')
-        for item in data:
+    else:
+        for item in resp.json().get('data').get('children'):
             print(item.get('data').get('title'))
-    except Exception:
-        print("None")
