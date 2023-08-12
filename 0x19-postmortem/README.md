@@ -1,6 +1,6 @@
 #0x19. Postmortem
 
-<img src="./bg.jpg" style="" alt="Programming Error">
+<img src="./bg.jpg" style="width: 566px; height:350px; text-align:center;" alt="Programming Error">
 
 In my early days as an employee in a financial institution, and new to the Information Communication Technology field as a new recruit, we were given a task to upgrade all workstations’ web browser from Internet Explorer 9 as at that time on all Microsoft Windows 7 Operating system to Internet Explorer 11 because the organization was trying to upgrade their financial application to a newer version which will not work well with Internet Explorer 9.
 A deadline was given to perform this task by the Application Solutions Department. Unknown to us, complete documentation for the safe rollout of this upgrade was not given/communicated to us because the application needed a newer version of Java RE preferably Java RE 7 update 60.
