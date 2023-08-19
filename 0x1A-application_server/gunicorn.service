@@ -5,13 +5,13 @@ After=network.target
 [Service]
 User=ubuntu
 Group=www-data
-WorkingDirectory=/home/ubuntu/AirBnB_clone_v4/web_dynamic
+WorkingDirectory=/home/ubuntu/AirBnB_clone_v4
 ExecStart=/usr/bin/gunicorn \
 	  --workers 3 \
 	  --bind 0.0.0.0:5003 \
 	  --error-logfile /tmp/airbnb-error.log \
 	  --access-logfile /tmp/airbnb-access.log \
-	  2-hbnb:app
+	  web_dynamic.2-hbnb:app
 Restart=always
 
 [Install]
