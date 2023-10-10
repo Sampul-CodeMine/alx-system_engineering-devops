@@ -20,7 +20,7 @@ def recurse(subreddit, hot_list=[], after=None, count=0):
 
     if resp.status_code == 404:
         return None
-    
+
     data = resp.json().get('data')
     after = data.get('after')
     count += data.get('dist')
