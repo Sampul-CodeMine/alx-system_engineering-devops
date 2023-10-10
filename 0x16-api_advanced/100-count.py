@@ -7,7 +7,7 @@ import json
 import requests
 
 
-def count_words(subreddit, word_list, count=[], after=""):
+def count_words(subreddit, word_list, count=[], after=None):
     """
     This is a function that count words using the REDDIT API
     """
@@ -15,7 +15,7 @@ def count_words(subreddit, word_list, count=[], after=""):
           'User-Agent': 'Google Chrome Version 115.0.0.0:v1.0.0 (by /u/bdov_)'
           }
     url = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
-    if after == "" or after is None:
+    if after is None:
         count = len(word_list) * [0]
 
     params = {'after': after}
