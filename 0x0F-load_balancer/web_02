@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#Connecting to the server web-02
+#Connecting to the web server web-02
 eval "$(ssh-agent)"
 ssh-add ~/.ssh/school
-ssh ubuntu@54.84.154.151
+ssh ubuntu@54.88.245.93
