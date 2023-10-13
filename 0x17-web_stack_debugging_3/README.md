@@ -1,8 +1,8 @@
-#0x17. Web stack debugging #3
+# 0x17. Web stack debugging #3
 
-##Requirements
+## Requirements
 
-###General
+### General
 
 - All your files will be interpreted on `Ubuntu 14.04 LTS`
 - All your files should end with a new line
@@ -13,10 +13,10 @@
 - Your Puppet manifests files must end with the extension `.pp`
 - Files will be checked with `Puppet v3.4`
 
-###More Info
+### More Info
 
 ```bash
-#Install puppet-lint
+# Install puppet-lint
 
 $ apt-get install -y ruby
 $ gem install puppet-lint -v 2.1.1
