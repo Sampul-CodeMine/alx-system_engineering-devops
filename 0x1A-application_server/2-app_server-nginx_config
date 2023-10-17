@@ -7,7 +7,7 @@ server {
     index  index.html index.htm;
 
     # Use server IP as Domain IP
-    server_name 34.229.72.181;
+    server_name 54.165.81.146;
 
     location /hbnb_static {
         alias /data/web_static/current;
