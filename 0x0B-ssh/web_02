@@ -2,4 +2,4 @@
 #Connecting to the web server web-02
 eval "$(ssh-agent)"
 ssh-add ~/.ssh/school
-ssh ubuntu@54.88.245.93
+ssh ubuntu@100.25.135.43
