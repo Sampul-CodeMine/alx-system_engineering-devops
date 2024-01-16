@@ -5,6 +5,7 @@ from the Reddit API
 """
 from requests import get
 
+
 def number_of_subscribers(subreddit):
     """
     This is a function that gets the number of total subscribers for a given
@@ -13,7 +14,7 @@ def number_of_subscribers(subreddit):
     if subreddit is None or type(subreddit) is not str:
         return 0
 
-    user_agent = {'User-Agent': '0x16.api_advanced_porject:Google Chrome Version 115.0.0.0(Linux)'}
+    user_agent = {'User-Agent': '0x16.api_advanced:Google Chrome(Linux)'}
     url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
     resp = get(url, headers=user_agent, allow_redirects=False)
     status = resp.status_code
@@ -22,5 +23,5 @@ def number_of_subscribers(subreddit):
             return 0
         else:
             return resp.json().get('data').get('subscribers')
-    except:
+    except (Exception):
         return 0
