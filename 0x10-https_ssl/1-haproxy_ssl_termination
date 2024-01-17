@@ -40,7 +40,7 @@ frontend sampulcodemine-frontend-http
         default_backend sampulcodemine-backend
 
 frontend sampulcodemine-frontend-https
-	bind *:443 ssl crt /etc/haproxy/certs/www.sampulcodemine.tech.pem
+	bind *:443 ssl crt /etc/ssl/www.sampulcodemine.tech/www.sampulcodemine.tech.pem
 	http-request set-header X-Forwarded-Proto https
 	default_backend sampulcodemine-backend
 
