@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Bash script to install nginx server
+# Bash script to install nginx server on a remote server
 apt-get update && apt-get upgrade -y
 apt-get install nginx -y
 ufw allow 'Nginx HTTP'
