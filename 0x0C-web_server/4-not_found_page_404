@@ -1,29 +1,32 @@
 #!/usr/bin/env bash
 #Configure your Nginx server to have a custom 404 page that contains the string
 
+#update the app repository for Ubuntu
 sudo apt-get update && sudo apt-get upgrade -y
+
+#install NGINX
 sudo apt-get install nginx -y
 
-sudo mkdir /etc/nginx/html
-sudo touch /etc/nginx/html/index.html
-echo "Hello World!" > /etc/nginx/html/index.html
-sudo touch /etc/nginx/html/404.html
-echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
+#Allow NGINX to run from PORT 80 
+sudo ufw allow 'Nginx HTTP'
 
-printf %s "server {
-    listen 80;
-    listen [::]:80 default_server;
-    root   /etc/nginx/html;
-    index  index.html index.htm;
+#Setting the Home page for Nginx
+echo "Hello World!" | sudo tee /var/www/html/index.html
 
-    location /redirect_me {
-        return 301 https://www.youtube.com/@sampulcodemine/playlists;
-    }
+#Creating a redirect_me path for the NGINX configuration
+replacement_str="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/Sampul-CodeMine permanent;"
+sudo sed -i "s/server_name _;/$replacement_str/" /etc/nginx/sites-enabled/default
 
-    error_page 404 /404.html;
-    location /404 {
-      root /etc/nginx/html;
-      internal;
-    }
-}" > /etc/nginx/sites-available/default
+
+#Creating a custom 404 error page
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+
+replacement_string="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html\t{\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
+
+sudo sed -i "s/listen 80 default_server;/$replacement_string/" /etc/nginx/sites-enabled/default
+
+#Test if the NGINX script is without errors
+sudo nginx -t
+
+#Restart the NGINX services
 sudo service nginx restart

@@ -1,12 +1,24 @@
 #!/usr/bin/env bash
-# Script to configure a new Ubuntu machine with respect to above the requirements
+#Configure your Nginx server to have a custom Redirection page
 
-sudo apt-get update
-sudo apt-get upgrade -y
-sudo apt-get install -y nginx
+#update the app repository for Ubuntu
+sudo apt-get update && sudo apt-get upgrade -y
+
+#install NGINX
+sudo apt-get install nginx -y
+
+#Allow NGINX to run from PORT 80 
 sudo ufw allow 'Nginx HTTP'
+
+#Setting the Home page for Nginx
 echo "Hello World!" | sudo tee /var/www/html/index.html
+
+#Creating a redirect_me path for the NGINX configuration
 replacement_str="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/Sampul-CodeMine permanent;"
 sudo sed -i "s/server_name _;/$replacement_str/" /etc/nginx/sites-enabled/default
+
+#Test if the NGINX script is without errors
 sudo nginx -t
+
+#Restart the NGINX services
 sudo service nginx restart
