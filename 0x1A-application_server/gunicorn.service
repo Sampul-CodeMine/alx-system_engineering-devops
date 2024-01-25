@@ -1,11 +1,17 @@
 [Unit]
 Description=Gunicorn instance to serve AirBnB_Clone App
+
+# Starts after network connectivity is available
 After=network.target
 
 [Service]
+# Run the service with user privileges
 User=ubuntu
 Group=www-data
+
+# Sets the working directory
 WorkingDirectory=/home/ubuntu/AirBnB_clone_v4
+
 ExecStart=/usr/bin/gunicorn \
 	  --workers 3 \
 	  --bind 0.0.0.0:5003 \
